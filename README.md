@@ -2,6 +2,7 @@
 > SASS Helpers for Breakpoint Handling
 
 [![Dependency Status](https://david-dm.org/superReal/srbreakpoints.svg)](https://david-dm.org/superReal/srbreakpoints)
+[![devDependencies Status](https://david-dm.org/superreal/srbreakpoints/dev-status.svg)](https://david-dm.org/superreal/srbreakpoints?type=dev)
 [![Code Climate](https://codeclimate.com/github/superReal/srbreakpoints/badges/gpa.svg)](https://codeclimate.com/github/superReal/srbreakpoints)
 [![Build Status](https://travis-ci.org/superReal/srbreakpoints.svg?branch=master)](https://travis-ci.org/superReal/srbreakpoints)
 [![Known Vulnerabilities](https://snyk.io/test/github/superReal/srbreakpoints/badge.svg)](https://snyk.io/test/github/superReal/srbreakpoints)
