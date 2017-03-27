@@ -1,0 +1,84 @@
+////
+/// @group helpers
+////
+
+/// Check whether the module has already been initialized
+/// @return {Boolean} Return sR Breakpoints initialization status
+@function srbreakpoints-is-initialized() {
+    @return global_variable_exists(srbreakpoints);
+}
+
+/// @access private
+/// Get all settings
+/// @return {Map} Return all sR Breakpoints settings
+@function srbreakpoints-get-settings() {
+    @if srbreakpoints-is-initialized() == false {
+        @error 'Please initialize sR Breakpoints module first';
+    }
+    @return $srbreakpoints;
+}
+
+/// @access private
+/// Check whether a setting is available
+/// @param {String} $setting-name - Setting name
+/// @return {Boolean} Return availability of the setting
+@function srbreakpoints-has-setting(
+    $setting-name
+) {
+    @return map-has-key(srbreakpoints-get-settings(), $setting-name);
+}
+
+/// @access private
+/// Get a single setting
+/// @param {String} $setting-name - Setting name
+/// @return {*} Return the value of the setting
+@function srbreakpoints-get-setting(
+    $setting-name
+) {
+    @if srbreakpoints-has-setting($setting-name) {
+        @return map_get(srbreakpoints-get-settings(), $setting-name);
+    } @else {
+        @error 'The setting named `#{$setting-name}` was not found!';
+    }
+}
+
+/// @access private
+/// Set a single setting
+/// The setting will be stored into the global variable named `$srbreakpoints`
+/// @param {String} $setting-name - Setting name
+/// @param {String} $setting-value - Setting value
+/// @return {Map} Return updated sR Breakpoints settings
+@function srbreakpoints-set-setting(
+    $setting-name,
+    $setting-value
+) {
+    $srbreakpoints: map-merge(srbreakpoints-get-settings(), ($setting-name: $setting-value)) !global;
+    @return $srbreakpoints;
+}
+
+/// Get all breakpoints
+/// @return {Map} Return all breakpoints
+@function srbreakpoints-get-breakpoints() {
+    @return srbreakpoints-get-setting('breakpoints');
+}
+
+/// Check whether the breakpoint is available
+/// @param {String} $breakpoint-name - Breakpoint name
+/// @return {Boolean} Return availability of the breakpoint
+@function srbreakpoints-has-breakpoint(
+    $breakpoint-name
+) {
+    @return map-has-key(srbreakpoints-get-breakpoints(), $breakpoint-name);
+}
+
+/// Get all breakpoint names
+/// @return {List} Return all breakpoint names
+@function srbreakpoints-get-breakpoint-names() {
+    @return map-keys(srbreakpoints-get-breakpoints());
+}
+
+/// Get all breakpoint widths
+/// @return {List} Return all breakpoint widths
+@function srbreakpoints-get-breakpoint-widths() {
+    @return map-values(srbreakpoints-get-breakpoints());
+}

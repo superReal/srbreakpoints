@@ -1,0 +1,37 @@
+@import 'core/helpers';
+@import 'core/content';
+@import 'core/debug';
+
+/// Init sR Breakpoints module
+/// @param {Map} $breakpoints [(xs: 0, s: 480, m: 768, l: 1024, xl: 1280)] - Breakpoints declaration
+/// @param {Boolean} $debug [false] - Debug mode
+@mixin srbreakpoints-init(
+    // Breakpoints declaration
+    $breakpoints: (
+        xs: 0,    // Extra Small Devices ~ Portrait Phones
+        s: 480,   // Small Devices ~ Landscape Phones
+        m: 768,   // Medium Devices ~ Portrait Tablets
+        l: 1024,  // Large Devices ~ Landscape Tablets
+        xl: 1280  // Extra Large Devices ~ Desktops
+    ),
+    // Debug mode
+    $debug: false
+) {
+    @if srbreakpoints-is-initialized() {
+        @error 'Please init sR Breakpoints module only once!';
+    }
+
+    /// Create a global variable for sR Breakpoints settings
+    $srbreakpoints: () !global;
+
+    // Breakpoints declaration
+    // Store `breakpoints` into sR Breakpoints settings
+    $settings: srbreakpoints-set-setting('breakpoints', $breakpoints);
+
+    // Debug mode
+    // Store `debug` into sR Breakpoints settings
+    $settings: srbreakpoints-set-setting('debug', $debug);
+    @if $debug {
+        @include srbreakpoints-enable-debug-mode();
+    }
+}

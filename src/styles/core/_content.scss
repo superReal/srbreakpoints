@@ -1,0 +1,84 @@
+////
+/// @group wrap-content
+////
+
+/// Wrap content from a specific breakpoint
+/// @param {string} $from-breakpoint-name - Breakpoint name
+@mixin srbreakpoints-wrap-content-from(
+    $from-breakpoint-name
+) {
+    @if srbreakpoints-has-breakpoint($from-breakpoint-name) == false {
+        @error 'Breakpoint named `#{$from-breakpoint-name}` was not found!';
+    }
+
+    @each $breakpoint-name, $breakpoint-width in srbreakpoints-get-breakpoints() {
+        @if $from-breakpoint-name == $breakpoint-name {
+            @media (min-width: #{$breakpoint-width}px) {
+                @content;
+            }
+        }
+    }
+}
+
+/// Wrap content between two specific breakpoints
+/// @param {string} $start-breakpoint-name - Start breakpoint name
+/// @param {string} $end-breakpoint-name - End breakpoint name
+@mixin srbreakpoints-wrap-content-between(
+    $start-breakpoint-name,
+    $end-breakpoint-name
+) {
+    @if srbreakpoints-has-breakpoint($start-breakpoint-name) == false {
+        @error 'The start breakpoint “#{$start-breakpoint-name}” was not found!';
+    }
+
+    @if srbreakpoints-has-breakpoint($end-breakpoint-name) == false {
+        @error 'The end breakpoint “#{$end-breakpoint-name}” was not found!';
+    }
+
+    @if $start-breakpoint-name == $end-breakpoint-name {
+        @error 'The start breakpoint is equal to the end breakpoint!';
+    }
+
+    $start-width: map-get(srbreakpoints-get-breakpoints(), $start-breakpoint-name);
+    $end-width: map-get(srbreakpoints-get-breakpoints(), $end-breakpoint-name);
+
+    @media (min-width: #{$start-width}px) and (max-width: #{$end-width - 1}px) {
+        @content;
+    }
+}
+
+/// Wrap content within a specific breakpoint
+/// @param {string} $within-breakpoint-name - Breakpoint name
+@mixin srbreakpoints-wrap-content-within(
+    $within-breakpoint-name
+) {
+    @if srbreakpoints-has-breakpoint($within-breakpoint-name) == false {
+        @error 'Breakpoint “#{$within-breakpoint-name}” was not found!';
+    }
+
+    $breakpoint-names: srbreakpoints-get-breakpoint-names();
+    $breakpoint-widths: srbreakpoints-get-breakpoint-widths();
+
+    @for $index from 1 through length(srbreakpoints-get-breakpoints()) {
+        $breakpoint-name: nth($breakpoint-names, $index);
+        $breakpoint-width: nth($breakpoint-widths, $index);
+
+        @if $within-breakpoint-name == $breakpoint-name {
+            @if $index == 1 {
+                $next-breakpoint-width: nth($breakpoint-widths, $index + 1) - 1;
+                @media (max-width: #{$next-breakpoint-width}px) {
+                    @content;
+                }
+            } @else if $index == length(srbreakpoints-get-breakpoints()) {
+                @media (min-width: #{$breakpoint-width}px) {
+                    @content;
+                }
+            } @else {
+                $next-breakpoint-width: nth($breakpoint-widths, $index + 1) - 1;
+                @media (min-width: #{$breakpoint-width}px) and (max-width: #{$next-breakpoint-width}px) {
+                    @content;
+                }
+            }
+        }
+    }
+}

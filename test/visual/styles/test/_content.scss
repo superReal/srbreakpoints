@@ -1,0 +1,32 @@
+/* Content */
+
+// Content responsive
+@each $breakpoint-name in srbreakpoints-get-breakpoint-names() {
+    @include srbreakpoints-wrap-content-from($breakpoint-name) {
+        #test_content_responsive .test_#{$breakpoint-name} {
+            @include test-success;
+        }
+    }
+}
+
+// Content between
+@each $breakpoint-start-name in srbreakpoints-get-breakpoint-names() {
+    @each $breakpoint-end-name in srbreakpoints-get-breakpoint-names() {
+        @if $breakpoint-start-name != $breakpoint-end-name {
+            @include srbreakpoints-wrap-content-between($breakpoint-start-name, $breakpoint-end-name) {
+                #test_content_between .test_#{$breakpoint-start-name}_#{$breakpoint-end-name} {
+                    @include test-success;
+                }
+            }
+        }
+    }
+}
+
+// Content only
+@each $breakpoint-name in srbreakpoints-get-breakpoint-names() {
+    @include srbreakpoints-wrap-content-within($breakpoint-name) {
+        #test_content_only .test_#{$breakpoint-name} {
+            @include test-success;
+        }
+    }
+}

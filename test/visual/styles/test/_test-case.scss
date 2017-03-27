@@ -1,0 +1,39 @@
+// Test state mixins
+@mixin test-default {
+    background: $color-gray;
+    color: $color-black;
+}
+
+@mixin test-success {
+    background: $color-black;
+    color: $color-white;
+}
+
+// Test case
+.test {
+    @include test-default;
+    $size: 100px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: $size;
+    height: $size;
+    margin: 5px;
+
+    &::after {
+        display: block;
+        font-size: 15px;
+
+        // Hide text on test running
+        .test-mode & {
+            font-size: 0;
+        }
+    }
+}
+
+// Show test text
+[data-test-text] {
+    &::after {
+        content: attr(data-test-text);
+    }
+}

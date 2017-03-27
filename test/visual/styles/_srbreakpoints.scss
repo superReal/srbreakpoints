@@ -1,0 +1,16 @@
+@import '../../../src/styles/srbreakpoints';
+
+// Init sR Breakpoints module
+@include srbreakpoints-init(
+    // Extend breakpoints settings with `xxl` breakpoint
+    $breakpoints: (
+        xs: 0,
+        s: 480,
+        m: 768,
+        l: 1024,
+        xl: 1280,
+        xxl: 1400
+    ),
+    // Enable debug mode
+    $debug: true
+);

@@ -1,0 +1,28 @@
+////
+/// @group debug
+////
+
+/// Enable debug mode
+/// Add ::after pseudo-element to html tag and show the current breakpoint name
+@mixin srbreakpoints-enable-debug-mode() {
+    html::after {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        padding: 6px;
+
+        color: rgba(0, 0, 0, .9);
+        font-family: 'Proxima Nova', sans-serif;
+        font-size: 11px;
+        background-color: rgba(255, 255, 255, .5);
+
+        @each $breakpoint-name in srbreakpoints-get-breakpoint-names() {
+            @include srbreakpoints-wrap-content-within($breakpoint-name) {
+                content: '#{$breakpoint-name}';
+            }
+        }
+    }
+}
+
+

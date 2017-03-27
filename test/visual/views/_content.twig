@@ -1,0 +1,37 @@
+<h2>Content</h2>
+
+<section id="test_content_responsive">
+    <h3>Responsive</h3>
+    <div class="test-wrapper">
+        {% for breakpointName in breakpointNames %}
+            <div class="test test_{{ breakpointName }}"
+                 data-test-text="{{ breakpointName }}"></div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="test_content_between">
+    <h3>Between</h3>
+    <div class="test-wrapper">
+        {% for breakpointStartName in breakpointNames %}
+            {% if not loop.last %}
+                {% for breakpointEndName in breakpointNames %}
+                    {% if breakpointStartName != breakpointEndName %}
+                        <div class="test test_{{ breakpointStartName }}_{{ breakpointEndName }}"
+                             data-test-text="{{ breakpointStartName }} ↔ {{ breakpointEndName }}"></div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<section id="test_content_only">
+    <h3>Only</h3>
+    <div class="test-wrapper">
+        {% for breakpointName in breakpointNames %}
+            <div class="test test_{{ breakpointName }}"
+                 data-test-text="{{ breakpointName }}"></div>
+        {% endfor %}
+    </div>
+</section>
