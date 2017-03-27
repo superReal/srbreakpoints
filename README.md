@@ -30,7 +30,7 @@ $ npm install --save @superreal/srbreakpoints
 
 Import the sR Breakpoints module in your project and initialize it:
 
-```scss
+```sass
 @import 'path_to_node_modules_folder/srbreakpoints/src/styles/srbreakpoints.scss';
 @include srbreakpoints-init();
 ```
@@ -42,7 +42,7 @@ Import the sR Breakpoints module in your project and initialize it:
 
 If the module is initialized without options, default values are applied:
 
-```scss
+```sass
 $srbreakpoints: (
     // Breakpoints declaration
     $breakpoints: (
@@ -88,7 +88,7 @@ It's deactivated by default, but can be activated when initializing the module.
 
 **Example implementation**
 
-```scss
+```sass
 @include srbreakpoints-init(
     $debug: true
 );
@@ -109,7 +109,7 @@ The module provides some helper mixins to simplify the work with it:
 
 *The page gets a red background from breakpoint "m" onwards, in other words: in breakpoints "m", "l" and "xl"*
 
-```scss
+```sass
 @include srbreakpoints-wrap-content-from(m) {
     body {
         background: red;
@@ -125,7 +125,7 @@ The module provides some helper mixins to simplify the work with it:
 
 *The page gets a red background between breakpoint "s" and breakpoint "l", in other words: in breakpoints "s", "m" and "l"*
 
-```scss
+```sass
 @include srbreakpoints-wrap-content-between(s, l) {
     body {
         background: red;
@@ -141,7 +141,7 @@ The module provides some helper mixins to simplify the work with it:
 
 *The page gets a red background only in breakpoint "xl"*
 
-```scss
+```sass
 @include srbreakpoints-wrap-content-within(xl) {
     body {
         background: red;
