@@ -1,6 +1,11 @@
 # sR Breakpoints
 > SASS Helpers for Breakpoint Handling
 
+[![Dependency Status](https://david-dm.org/superReal/srbreakpoints.svg)](https://david-dm.org/superReal/srbreakpoints)
+[![Code Climate](https://codeclimate.com/github/superReal/srbreakpoints/badges/gpa.svg)](https://codeclimate.com/github/superReal/srbreakpoints)
+[![Build Status](https://travis-ci.org/superReal/srbreakpoints.svg?branch=master)](https://travis-ci.org/superReal/srbreakpoints)
+[![Known Vulnerabilities](https://snyk.io/test/github/superReal/srbreakpoints/badge.svg)](https://snyk.io/test/github/superReal/srbreakpoints)
+
 The sR Breakpoints module provides SASS functions and mixins, which simplify working with media queries aka breakpoints.
 
 **Note that the README on the `master` branch might not match that of the [latest stable release](https://github.com/superReal/srbreakpoints/releases/latest)!**
