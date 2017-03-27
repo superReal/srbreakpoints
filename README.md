@@ -65,7 +65,7 @@ It's possible to override the default breakpoint declarations.
 
 *This example shows an implementation of [Bootstrap's](http://getbootstrap.com) breakpoints.* 
 
-```scss
+```sass
 @include srbreakpoints-init(
     $breakpoints: (
         xs: 0,
@@ -81,7 +81,7 @@ It's possible to override the default breakpoint declarations.
 
 
 
-### Debug mode
+## Debug mode
 
 The sR Breakpoints module has a built-in debug mode which displays the current breakpoint at the bottom right of the page.
 It's deactivated by default, but can be activated when initializing the module.
