@@ -160,10 +160,6 @@ The module provides some helper mixins to simplify the work with it:
 The module provides a pair of helper functions to simplify the work with it:
 
 - `srbreakpoints-is-initialized()` — {Boolean} Check whether the module has already been initialized
-- `srbreakpoints-get-settings()` — {Map} Get all settings
-- `srbreakpoints-has-setting()` — {Boolean} Check whether a setting is available
-- `srbreakpoints-get-setting($setting-name)` — {*} Get a single setting
-- `srbreakpoints-set-setting()` — {Map} Set a single setting
 - `srbreakpoints-get-breakpoints()` — {Map} Get all breakpoints
 - `srbreakpoints-has-breakpoint($breakpoint-name)` — {Boolean} Check whether the breakpoint is available
 - `srbreakpoints-get-breakpoint-names()` — {List} Get all breakpoint names 
