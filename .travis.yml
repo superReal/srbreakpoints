@@ -14,7 +14,7 @@ before_install:
     - eval $(ssh-agent -s)
     - ssh-add static_pages_key
     - mkdir -p ~/.ssh
-    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 install:
     - npm install
 script:
