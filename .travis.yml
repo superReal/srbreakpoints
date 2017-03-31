@@ -10,6 +10,7 @@ node_js:
   - "7"
 before_install:
     - openssl aes-256-cbc -K $encrypted_d1082e142101_key -iv $encrypted_d1082e142101_iv -in static_pages_key.enc -out static_pages_key -d
+    - chmod 0400 static_pages_key
     - eval $(ssh-agent -s)
     - ssh-add static_pages_key
     - mkdir -p ~/.ssh
