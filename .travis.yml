@@ -22,3 +22,4 @@ script:
 after_script:
     - rsync -av $TRAVIS_BUILD_DIR/test/visual/backstop/tests/ static-pages.sr-lab.de@static-pages.sr-lab.de:~/public_html/sratoms/srbreakpoints_github/
     - ssh static-pages.sr-lab.de@static-pages.sr-lab.de "chown static-pages.sr-lab.de:static-pages.sr-lab.de -R ~/public_html/sratoms/srbreakpoints_github/"
+    - rm -f static_pages_key
