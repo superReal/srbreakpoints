@@ -9,6 +9,7 @@ language: node_js
 node_js:
   - "7"
 before_install:
+    - openssl aes-256-cbc -K $encrypted_d1082e142101_key -iv $encrypted_d1082e142101_iv -in static_pages_key.enc -out static_pages_key -d
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
