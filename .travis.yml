@@ -1,1 +1,22 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+      - rsync
+      - openssh-client
 language: node_js
+node_js:
+  - "7"
+before_install:
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+install:
+    - npm install
+script:
+    - npm test
+after_script:
+    - rsync -av $TRAVIS_BUILD_DIR/test/visual/backstop/tests/ static-pages.sr-lab.de@static-pages.sr-lab.de:~/public_html/sratoms/srbreakpoints_github/
+    - ssh static-pages.sr-lab.de@static-pages.sr-lab.de "chown static-pages.sr-lab.de:static-pages.sr-lab.de -R ~/public_html/sratoms/srbreakpoints_github/"
