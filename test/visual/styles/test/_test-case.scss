@@ -23,11 +23,6 @@
     &::after {
         display: block;
         font-size: 15px;
-
-        // Hide text on test running
-        .test-mode & {
-            font-size: 0;
-        }
     }
 }
 
@@ -35,5 +30,14 @@
 [data-test-text] {
     &::after {
         content: attr(data-test-text);
+    }
+}
+
+// Hide text on test running
+.test-mode *{ /* stylelint-disable-line */
+    &,
+    &::before,
+    &::after {
+        font-size: 0 !important;
     }
 }
