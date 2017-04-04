@@ -17,7 +17,7 @@ The sR Breakpoints module provides SASS functions and mixins, which simplify wor
 - [Defaults](#defaults)
 - [Breakpoint declaration](#breakpoint-declaration)
 - [Debug mode](#debug-mode)
-- [Helper mixins](#content-mixins)
+- [Helper mixins](#helper-mixins)
 - [Helper functions](#helper-functions)
 
 ## Installation
