@@ -65,7 +65,7 @@ module.exports = {
                 '#test_content_only .test-wrapper',
             ],
             delay: 0,
-            misMatchThreshold: 0.1,
+            misMatchThreshold: 0,
             onReadyScript: 'on-before.js',
         },
     ],
