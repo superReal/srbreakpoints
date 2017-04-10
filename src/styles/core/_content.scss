@@ -39,11 +39,21 @@
         @error 'The start breakpoint is equal to the end breakpoint!';
     }
 
-    $start-width: map-get(srbreakpoints-get-breakpoints(), $start-breakpoint-name);
-    $end-width: map-get(srbreakpoints-get-breakpoints(), $end-breakpoint-name);
+    $breakpoints: srbreakpoints-get-breakpoints();
+    $min-width: map-get($breakpoints, $start-breakpoint-name);
 
-    @media (min-width: #{$start-width}px) and (max-width: #{$end-width - 1}px) {
-        @content;
+    $breakpoint-names: srbreakpoints-get-breakpoint-names();
+    $last-breakpoint-name: nth($breakpoint-names, length($breakpoint-names));
+    @if $end-breakpoint-name == $last-breakpoint-name {
+        @media (min-width: #{$min-width}px) {
+            @content;
+        }
+    } @else {
+        $next-breakpoint-name: nth($breakpoint-names, index($breakpoint-names, $end-breakpoint-name) + 1);
+        $max-width: map-get($breakpoints, $next-breakpoint-name) - 1;
+        @media (min-width: #{$min-width}px) and (max-width: #{$max-width}px) {
+            @content;
+        }
     }
 }
 

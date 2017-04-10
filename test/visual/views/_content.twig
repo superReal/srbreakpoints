@@ -15,7 +15,7 @@
     <div class="test-wrapper">
         {% for breakpointStartName in breakpointNames %}
             {% if not loop.last %}
-                {% for breakpointEndName in breakpointNames %}
+                {% for breakpointEndName in breakpointNames|slice(loop.index, breakpointNames|length) %}
                     {% if breakpointStartName != breakpointEndName %}
                         <div class="test test_{{ breakpointStartName }}_{{ breakpointEndName }}"
                              data-test-text="{{ breakpointStartName }} ↔ {{ breakpointEndName }}"></div>
