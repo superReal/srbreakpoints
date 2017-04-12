@@ -9,7 +9,7 @@
 
 The sR Breakpoints module provides SASS functions and mixins, which simplify working with media queries aka breakpoints.
 
-**Note that the README on the `master` branch might not match that of the [latest stable release](https://github.com/superReal/srbreakpoints/releases/latest)!**
+**Note that the README on the `master` branch might not match the one in the [latest stable release](https://github.com/superReal/srbreakpoints/releases/latest)!**
 
 ## Contents
 - [Installation](#installation)
@@ -89,7 +89,7 @@ It's possible to override the default breakpoint declarations.
 
 ## Debug mode
 
-The sR Breakpoints module has a built-in debug mode which displays the current breakpoint at the bottom right of the page.
+The sR Breakpoints module has a built-in debug mode which displays the current breakpoint in the bottom right corner.
 It's deactivated by default, but can be activated when initializing the module.
 
 **Example implementation**
@@ -100,7 +100,7 @@ It's deactivated by default, but can be activated when initializing the module.
 );
 ```
 
-*Note that the debug mode is not intended for a production environment.* 
+*Note that the debug mode is not intended for a productive environment.* 
 
 
 
@@ -113,7 +113,7 @@ The module provides some helper mixins to simplify the work with it:
 
 **Example implementation**
 
-*The page gets a red background from breakpoint "m" onwards, in other words: in breakpoints "m", "l" and "xl"*
+*The page gets a red background from breakpoint "m" and above, in other words: in breakpoints "m", "l" and "xl"*
 
 ```sass
 @include srbreakpoints-wrap-content-from(m) {
