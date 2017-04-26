@@ -94,6 +94,8 @@ It's deactivated by default, but can be activated when initializing the module.
 
 **Example implementation**
 
+![](media/srbreakpoints-debug-mode.png)
+
 ```sass
 @include srbreakpoints-init(
     $debug: true
@@ -113,6 +115,8 @@ The module provides some helper mixins to simplify the work with it:
 
 **Example implementation**
 
+![](media/srbreakpoints-wrap-content-from.gif)
+
 *The page gets a red background from breakpoint "m" and above, in other words: in breakpoints "m", "l" and "xl"*
 
 ```sass
@@ -129,6 +133,8 @@ The module provides some helper mixins to simplify the work with it:
 
 **Example implementation**
 
+![](media/srbreakpoints-wrap-content-between.gif)
+
 *The page gets a red background between breakpoint "s" and breakpoint "l", in other words: in breakpoints "s", "m" and "l"*
 
 ```sass
@@ -144,6 +150,8 @@ The module provides some helper mixins to simplify the work with it:
 `srbreakpoints-wrap-content-within($within-breakpoint-name)`
 
 **Example implementation**
+
+![](media/srbreakpoints-wrap-content-within.gif)
 
 *The page gets a red background only in breakpoint "xl"*
 
