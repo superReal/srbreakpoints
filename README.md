@@ -28,7 +28,7 @@ $ npm install --save @superreal/srbreakpoints
 Import the sR Breakpoints module in your project and initialize it:
 
 ```sass
-@import 'path_to_node_modules_folder/srbreakpoints/src/styles/srbreakpoints.scss';
+@import 'path_to_node_modules_folder/@superreal/srbreakpoints/src/styles/srbreakpoints.scss';
 @include srbreakpoints-init();
 ```
 
