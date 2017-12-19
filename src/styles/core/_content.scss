@@ -28,11 +28,11 @@
     $end-breakpoint-name
 ) {
     @if srbreakpoints-has-breakpoint($start-breakpoint-name) == false {
-        @error 'The start breakpoint “#{$start-breakpoint-name}” was not found!';
+        @error 'The start breakpoint "#{$start-breakpoint-name}" was not found!';
     }
 
     @if srbreakpoints-has-breakpoint($end-breakpoint-name) == false {
-        @error 'The end breakpoint “#{$end-breakpoint-name}” was not found!';
+        @error 'The end breakpoint "#{$end-breakpoint-name}" was not found!';
     }
 
     @if $start-breakpoint-name == $end-breakpoint-name {
@@ -63,7 +63,7 @@
     $within-breakpoint-name
 ) {
     @if srbreakpoints-has-breakpoint($within-breakpoint-name) == false {
-        @error 'Breakpoint “#{$within-breakpoint-name}” was not found!';
+        @error 'Breakpoint "#{$within-breakpoint-name}" was not found!';
     }
 
     $breakpoint-names: srbreakpoints-get-breakpoint-names();
