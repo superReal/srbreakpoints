@@ -38,13 +38,13 @@
     @if srbreakpoints-has-setting($setting-name) {
         @return map_get(srbreakpoints-get-settings(), $setting-name);
     } @else {
-        @error 'The setting named `#{$setting-name}` was not found!';
+        @error 'The setting named "#{$setting-name}" was not found!';
     }
 }
 
 /// @access private
 /// Set a single setting
-/// The setting will be stored into the global variable named `$srbreakpoints`
+/// The setting will be stored into the global variable named "$srbreakpoints"
 /// @param {String} $setting-name - Setting name
 /// @param {String} $setting-value - Setting value
 /// @return {Map} Return updated sR Breakpoints settings

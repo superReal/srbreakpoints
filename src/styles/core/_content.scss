@@ -8,7 +8,7 @@
     $from-breakpoint-name
 ) {
     @if srbreakpoints-has-breakpoint($from-breakpoint-name) == false {
-        @error 'Breakpoint named `#{$from-breakpoint-name}` was not found!';
+        @error 'Breakpoint named "#{$from-breakpoint-name}" was not found!';
     }
 
     @each $breakpoint-name, $breakpoint-width in srbreakpoints-get-breakpoints() {
